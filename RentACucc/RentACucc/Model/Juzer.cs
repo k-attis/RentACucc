@@ -23,6 +23,5 @@ namespace RentACucc
             get { return _Nev; }
             set { _Nev = value; propChanged("Nev"); }
         }
-
     }
 }

@@ -9,6 +9,8 @@ namespace RentACucc
 {
     public class App : Application
     {
+        DB db = new DB();
+
         public App()
         {
             // The root page of your application

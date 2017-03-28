@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentACucc.View.FoLap">
+  <StackLayout>
+    <Button x:Name="Cuccok" Text="Cuccok"/>
+    <Button x:Name="Juserek" Text="Felhasználók"/>
+    <Button x:Name="Kolcsik" Text="Kölcsönzések"/>
+    <Button x:Name="LejartKolcsik" Text="Lejárt kölcsönzések"/>
+  </StackLayout>
+</ContentPage>

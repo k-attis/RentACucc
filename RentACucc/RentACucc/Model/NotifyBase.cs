@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RentACucc
 {
-    class NotifyBase : INotifyPropertyChanged
+    public class NotifyBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -37,7 +37,7 @@ namespace RentACucc.View
 
         private void Cuccok_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new CuccokLap());
         }
     }
 }

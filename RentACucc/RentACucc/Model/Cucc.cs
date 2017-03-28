@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RentACucc
 {
-    class Cucc : NotifyBase
+    public class Cucc : NotifyBase
     {
         private int _ID = 0;
         [PrimaryKey, AutoIncrement] 

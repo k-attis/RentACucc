@@ -18,10 +18,20 @@ namespace RentACucc.Model
 
         DB db = new DB();
 
-        public ViewModel()
+        private ViewModel()
         {
-                        
+            CuccLista = new ObservableCollection<Cucc>(db.getList<Cucc>());
+            JuzerLista = new ObservableCollection<Juzer>(db.getList<Juzer>());
+            KolcsonzesLista = new ObservableCollection<Kolcsonzes>(db.getList<Kolcsonzes>());
         }
 
+        //Singleton minta
+        //public static ViewModel egykePeldany { get; } = new ViewModel();
+
+        private static ViewModel _EgykePeldany = new ViewModel();
+        public static ViewModel getEgykePeldany()
+        {
+            return _EgykePeldany;
+        }
     }
 }

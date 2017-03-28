@@ -101,5 +101,10 @@ namespace RentACucc
 
             dbkapcsi.InsertAll(mintakolcsonzesek);
         }
+
+        public List<T> getList<T>() where T : new() // bármit írhatsz a T helyére 
+        {
+            return dbkapcsi.Table<T>().ToList();
+        }        
     }
 }

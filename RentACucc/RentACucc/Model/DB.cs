@@ -11,18 +11,22 @@ namespace RentACucc
     {
         public static String DBPath; // Platform specifikus elérési út az alkalmazás privát fájljaihoz
 
-        SQLiteConnection dbconn;
+        SQLiteConnection dbkapcsi;
 
         public DB() // constructor
         {
             try
             {
                 // adatbázis fájl megnyitása vagy létrehozása ha nem létezik
-                dbconn = new SQLiteConnection(System.IO.Path.Combine(DBPath, "rentacucc.sqlite3"));
+                dbkapcsi = new SQLiteConnection(System.IO.Path.Combine(DBPath, "rentacucc.sqlite3"));
             }
             catch (Exception ex)
             {
             }
+
+            dbkapcsi.CreateTable<Cucc>();
+            dbkapcsi.CreateTable<Juzer>();
+            dbkapcsi.CreateTable<Kolcsonzes>();
         }
     }
 }

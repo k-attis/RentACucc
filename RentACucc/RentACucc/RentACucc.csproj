@@ -36,7 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Cucc.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="Juzer.cs" />
+    <Compile Include="Kolcsonzes.cs" />
+    <Compile Include="NotifyBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

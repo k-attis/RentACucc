@@ -65,7 +65,19 @@ namespace RentACucc.Model
 
         public ObservableCollection<JuzerViewModel> getJuzerViewModelList()
         {
-            return null;
+            ObservableCollection<JuzerViewModel> tmp =
+                new ObservableCollection<JuzerViewModel>();
+
+            foreach (Juzer j in JuzerLista)
+            {
+                int tartozas = 
+                    db.getTartozas(j);
+
+                JuzerViewModel jvm = 
+                    new JuzerViewModel(j, tartozas);
+            }
+
+            return tmp;
         }
     }
 }

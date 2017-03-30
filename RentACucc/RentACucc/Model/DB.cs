@@ -142,5 +142,22 @@ namespace RentACucc
         {
             dbkapcsi.Delete(item);
         }
+
+        public int getTartozas(Juzer juzer)
+        {
+            List<int> tmp= dbkapcsi.Query<int>(@"
+                SELECT
+                    sum(Cucc.Napidij)
+                FROM
+                    Kolcsonzes
+                    INNER JOIN
+                    Cucc
+                    ON
+                    Kolcsonzes.CuccID = Cucc.ID
+                WHERE
+                    Kolcsonzes.JuzerID = ?", juzer.ID);
+
+            return tmp[0];
+        }
     }
 }

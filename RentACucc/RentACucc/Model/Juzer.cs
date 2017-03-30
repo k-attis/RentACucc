@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RentACucc
 {
-    class Juzer : NotifyBase
+    public class Juzer : NotifyBase
     {
         private int _ID = 0;
         [PrimaryKey, AutoIncrement]

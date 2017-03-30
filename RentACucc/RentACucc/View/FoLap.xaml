@@ -7,5 +7,6 @@
     <Button x:Name="Juserek" Text="Felhasználók"/>
     <Button x:Name="Kolcsik" Text="Kölcsönzések"/>
     <Button x:Name="LejartKolcsik" Text="Lejárt kölcsönzések"/>
+    <Button x:Name="ujKolcsi" Text="Új kölcsönzés"/>
   </StackLayout>
 </ContentPage>

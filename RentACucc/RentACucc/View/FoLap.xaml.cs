@@ -18,6 +18,12 @@ namespace RentACucc.View
             Juserek.Clicked += Juserek_Clicked;
             Kolcsik.Clicked += Kolcsik_Clicked;
             LejartKolcsik.Clicked += LejartKolcsik_Clicked;
+            ujKolcsi.Clicked += UjKolcsi_Clicked;
+        }
+
+        private void UjKolcsi_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new KolcsonzesLap());
         }
 
         private void LejartKolcsik_Clicked(object sender, EventArgs e)

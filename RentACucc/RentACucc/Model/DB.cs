@@ -25,6 +25,10 @@ namespace RentACucc
             {
             }
 
+            dbkapcsi.DropTable<Cucc>();
+            dbkapcsi.DropTable<Juzer>();
+            dbkapcsi.DropTable<Kolcsonzes>();
+
             dbkapcsi.CreateTable<Cucc>();
             dbkapcsi.CreateTable<Juzer>();
             dbkapcsi.CreateTable<Kolcsonzes>();
@@ -34,22 +38,28 @@ namespace RentACucc
 
         void mintaadatok()
         {
+            if (dbkapcsi.Table<Cucc>().Count() > 0)
+                return;
+
             List<Cucc> mintacuccok = new List<Cucc>
             {
                 new Cucc()
                 {
                     Nev="Hangfal",
-                    SN="H001"
+                    SN="H001",
+                    Napidij = 1000
                 },
                 new Cucc()
                 {
                     Nev="Rúter",
-                    SN="R001"
+                    SN="R001",
+                    Napidij = 100
                 },
                 new Cucc()
                 {
                     Nev="Pöttyös Labda",
-                    SN="L123"
+                    SN="L123",
+                    Napidij = 1
                 }
             };
 
@@ -80,7 +90,7 @@ namespace RentACucc
                     CuccID = 2,
                     JuzerID =2,
                     Mettol = DateTime.Parse("2016.03.23"),
-                    Meddig = DateTime.Parse("2016.03.30")                    
+                    Meddig = DateTime.Parse("2016.03.30")
                 },
                 new Kolcsonzes
                 {
@@ -119,7 +129,7 @@ namespace RentACucc
                 tmp = -1;
             }
 
-            if (tmp == -1)                
+            if (tmp == -1)
                 updateItem(item);
         }
 

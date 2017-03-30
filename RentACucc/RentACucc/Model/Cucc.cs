@@ -31,5 +31,12 @@ namespace RentACucc
             get { return _Nev; }
             set { _Nev = value; propChanged("Nev"); }
         }
+
+        private int _Napidij = 0;
+        public int Napidij
+        {
+            get { return _Napidij; }
+            set { _Napidij = value; propChanged("Napidij"); }
+        }
     }
 }

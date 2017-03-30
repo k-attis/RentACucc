@@ -33,5 +33,10 @@ namespace RentACucc.Model
         {
             return _EgykePeldany;
         }
+
+        public void saveCucc(Cucc cucc)
+        {
+            db.
+        }
     }
 }

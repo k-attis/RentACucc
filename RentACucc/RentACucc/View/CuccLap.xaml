@@ -2,5 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentACucc.View.CuccLap">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  
+  <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="deleteTBI" Text="Törlés"/>
+    <ToolbarItem x:Name="saveTBI" Text="Mentés"/>
+    <ToolbarItem x:Name="cancelTBI" Text="Mégsem"/>
+  </ContentPage.ToolbarItems>
+  
+  <Label Text="Sorozatszám"/>
+  <Entry Text="{Binding SN}" VerticalOptions="Center"/>
+  <Label Text="Név"/>
+  <Entry Text="{Binding Nev}" VerticalOptions="Center"/>
+  
 </ContentPage>

@@ -105,6 +105,32 @@ namespace RentACucc
         public List<T> getList<T>() where T : new() // bármit írhatsz a T helyére 
         {
             return dbkapcsi.Table<T>().ToList();
-        }        
+        }
+
+        public void saveItem<T>(T item) where T : new()
+        {
+            int tmp;
+            try
+            {
+                tmp = dbkapcsi.Insert(item);
+            }
+            catch
+            {
+                tmp = -1;
+            }
+
+            if (tmp == -1)                
+                updateItem(item);
+        }
+
+        public void updateItem<T>(T item) where T : new()
+        {
+            dbkapcsi.Update(item);
+        }
+
+        public void deleteItem<T>(T item) where T : new()
+        {
+            dbkapcsi.Delete(item);
+        }
     }
 }

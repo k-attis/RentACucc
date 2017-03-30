@@ -14,7 +14,7 @@ namespace RentACucc.View
         {
             InitializeComponent();
             juzerekLista.ItemsSource = 
-                Model.ViewModel.getEgykePeldany().JuzerLista;
+                Model.ViewModel.getEgykePeldany().getJuzerViewModelList();
         }
     }
 }

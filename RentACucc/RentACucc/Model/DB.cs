@@ -143,11 +143,11 @@ namespace RentACucc
             dbkapcsi.Delete(item);
         }
 
-        public int getTartozas(Juzer juzer)
+        /*public int getTartozas(Juzer juzer)
         {
             List<int> tmp= dbkapcsi.Query<int>(@"
                 SELECT
-                    sum(Cucc.Napidij)
+                    sum(100)
                 FROM
                     Kolcsonzes
                     INNER JOIN
@@ -155,9 +155,9 @@ namespace RentACucc
                     ON
                     Kolcsonzes.CuccID = Cucc.ID
                 WHERE
-                    Kolcsonzes.JuzerID = ?", juzer.ID);
+                    Kolcsonzes.JuzerID = 1", juzer.ID);
 
             return tmp[0];
-        }
+        }*/
     }
 }

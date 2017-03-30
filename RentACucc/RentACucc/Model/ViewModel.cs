@@ -71,10 +71,29 @@ namespace RentACucc.Model
             foreach (Juzer j in JuzerLista)
             {
                 int tartozas = 
-                    db.getTartozas(j);
+                    getTartozas(j);
 
                 JuzerViewModel jvm = 
                     new JuzerViewModel(j, tartozas);
+
+                tmp.Add(jvm);
+            }
+
+            return tmp;
+        }
+
+        public int getTartozas(Juzer juzer)
+        {
+            int tmp = 0;
+            foreach(Kolcsonzes k in KolcsonzesLista)
+            {
+                if (
+                    k.JuzerID==juzer.ID 
+                    && 
+                    k.Visszahozta == DateTime.MinValue)
+                {
+                    tmp += (DateTime.Now - k.Mettol).Days * 1;
+                }
             }
 
             return tmp;

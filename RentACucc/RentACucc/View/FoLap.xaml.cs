@@ -32,7 +32,7 @@ namespace RentACucc.View
 
         private void Juserek_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new JuzerekLap());
         }
 
         private void Cuccok_Clicked(object sender, EventArgs e)

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentACucc.View.KolcsonzesLap">
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="userselectButtonTBI" Text="Kölcsönző kiválasztás"/>
+    <ToolbarItem x:Name="addCuccTBI" Text="Cucc hozzáadás"/>
+    <ToolbarItem x:Name="cancelTBI" Text="Mégsem"/>
+  </ContentPage.ToolbarItems>
+  <StackLayout Orientation="Vertical">
+
+    <StackLayout Orientation="Vertical">
+      <Label Text="Id" />
+      <Label Text="{Binding juzer.ID}" />
+      <Label Text="Nev" />
+      <Label Text="{Binding juzer.Nev}" />
+    </StackLayout>
+
+    <ListView x:Name = "cuccokLista">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal">
+              <Label Text="{Binding ID}" />
+              <Label Text="{Binding Nev}" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+</ContentPage>

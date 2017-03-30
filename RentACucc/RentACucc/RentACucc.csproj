@@ -40,6 +40,7 @@
     <Compile Include="Model\DB.cs" />
     <Compile Include="Model\Juzer.cs" />
     <Compile Include="Model\Kolcsonzes.cs" />
+    <Compile Include="Model\KolcsonzesViewModel.cs" />
     <Compile Include="Model\NotifyBase.cs" />
     <Compile Include="Model\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,6 +56,9 @@
     <Compile Include="Model\JuzerViewModel.cs" />
     <Compile Include="View\JuzerekLap.xaml.cs">
       <DependentUpon>JuzerekLap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\KolcsonzesLap.xaml.cs">
+      <DependentUpon>KolcsonzesLap.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\JuzerekLap.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\KolcsonzesLap.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

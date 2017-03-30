@@ -36,7 +36,7 @@ namespace RentACucc
             set { _Meddig = value; propChanged("Meddig"); }
         }
 
-        private DateTime _Visszahozta;
+        private DateTime _Visszahozta = DateTime.MinValue;
         public DateTime Visszahozta
         {
             get { return _Visszahozta; }

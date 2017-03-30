@@ -34,12 +34,17 @@ namespace RentACucc.View
 
         private void SaveTBI_Clicked(object sender, EventArgs e)
         {
-          
+            Model.ViewModel.getEgykePeldany().saveCucc(_cucc);
+            Navigation.PopAsync();
         }
 
         private void DeleteTBI_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (Model.ViewModel.getEgykePeldany().kiVanEKolcsonozve(_cucc))
+                DisplayAlert("Figyi", "Ez már kivan kölcsönözve", "Okés");
+            else
+                Model.ViewModel.getEgykePeldany().deleteCucc(_cucc);
+            Navigation.PopAsync();
         }
     }
 }

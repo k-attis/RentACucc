@@ -89,23 +89,23 @@ namespace RentACucc
                 {
                     CuccID = 2,
                     JuzerID =2,
-                    Mettol = DateTime.Parse("2016.03.23"),
-                    Meddig = DateTime.Parse("2016.03.30")
+                    Mettol = DateTime.Parse("2017.03.23"),
+                    Meddig = DateTime.Parse("2017.04.06")
                 },
                 new Kolcsonzes
                 {
                     CuccID = 1,
                     JuzerID =2,
-                    Mettol = DateTime.Parse("2016.03.23"),
-                    Meddig = DateTime.Parse("2016.04.05"),
-                    Visszahozta = DateTime.Parse("2016.03.26")
+                    Mettol = DateTime.Parse("2017.03.23"),
+                    Meddig = DateTime.Parse("2017.04.05"),
+                    Visszahozta = DateTime.Parse("2017.03.26")
                 },
                 new Kolcsonzes
                 {
                     CuccID = 1,
                     JuzerID =1,
-                    Mettol = DateTime.Parse("2016.03.27"),
-                    Meddig = DateTime.Parse("2016.04.07")
+                    Mettol = DateTime.Parse("2017.03.17"),
+                    Meddig = DateTime.Parse("2017.03.27")
                 }
             };
 

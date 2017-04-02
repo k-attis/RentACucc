@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using static Xamarin.Forms.Button;
 
 namespace RentACucc.View
 {
@@ -14,11 +15,28 @@ namespace RentACucc.View
         {
             InitializeComponent();
 
+            NavigationPage.SetHasNavigationBar(this, false);
+
+            this.BackgroundImage = "bg.jpg";
+
             Cuccok.Clicked += Cuccok_Clicked;
             Juserek.Clicked += Juserek_Clicked;
             Kolcsik.Clicked += Kolcsik_Clicked;
             LejartKolcsik.Clicked += LejartKolcsik_Clicked;
             ujKolcsi.Clicked += UjKolcsi_Clicked;
+
+            egysegesKinezet(Cuccok);
+            egysegesKinezet(Juserek);
+            egysegesKinezet(Kolcsik);
+            egysegesKinezet(LejartKolcsik);
+            egysegesKinezet(ujKolcsi);                       
+        }
+
+        private void egysegesKinezet(Button b)
+        {   
+            b.BorderWidth = 5;
+            b.BorderColor = Color.White;
+            b.BorderRadius = 10;            
         }
 
         private void UjKolcsi_Clicked(object sender, EventArgs e)

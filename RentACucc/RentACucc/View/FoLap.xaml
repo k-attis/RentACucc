@@ -1,12 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RentACucc.View.FoLap">
-  <StackLayout>
-    <Button x:Name="Cuccok" Text="Cuccok"/>
-    <Button x:Name="Juserek" Text="Felhasználók"/>
-    <Button x:Name="Kolcsik" Text="Kölcsönzések"/>
-    <Button x:Name="LejartKolcsik" Text="Lejárt kölcsönzések"/>
-    <Button x:Name="ujKolcsi" Text="Új kölcsönzés"/>
-  </StackLayout>
+             x:Class="RentACucc.View.FoLap"
+             Padding="20,20,20,20">
+  
+  
+  
+  <Grid x:Name="gl" ColumnSpacing="20" RowSpacing="20">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+    <Button x:Name="Cuccok" Text="Cuccok" Image="i1.png" ContentLayout="Top" BackgroundColor="#407F7F" TextColor="#FFFFFF" Grid.Row="0" Grid.Column="0"/>
+    <Button x:Name="Juserek" Text="Felhasználók" Image="i2.png" ContentLayout="Top" BackgroundColor="#55AA55" TextColor="#FFFFFF" Grid.Row="0" Grid.Column="1"/>
+    <Button x:Name="Kolcsik" Text="Kölcsönzések" Image="i3.png" ContentLayout="Top" BackgroundColor="#D49A6A" TextColor="#FFFFFF" Grid.Row="1" Grid.Column="0"/>
+    <Button x:Name="LejartKolcsik" Text="Lejárt kölcsönzések" Image="i4.png" ContentLayout="Top" BackgroundColor="#D46A6A" TextColor="#FFFFFF" Grid.Row="1" Grid.Column="1"/>
+    <Button x:Name="ujKolcsi" Text="Új kölcsönzés" Image="i5.png" ContentLayout="Top" BackgroundColor="#CC6672" TextColor="#FFFFFF" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+  </Grid>
 </ContentPage>

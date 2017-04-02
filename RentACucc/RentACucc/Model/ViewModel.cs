@@ -70,20 +70,23 @@ namespace RentACucc.Model
 
             foreach (Juzer j in JuzerLista)
             {
-                int tartozas =
-                    getTartozas(j);
-
-                JuzerViewModel jvm =
-                    new JuzerViewModel(j, tartozas);
-
+                JuzerViewModel jvm = new JuzerViewModel()
+                {
+                    ID = j.ID,
+                    Nev = j.Nev,
+                    KolcsonzesekSzama = db.getKolcsonzesekSzama(j),
+                    Tartozas = getTartozas(j)
+                };
+                
                 tmp.Add(jvm);
             }
 
             return tmp;
         }
 
+        
         public int getTartozas(Juzer juzer)
-        {            
+        {
             decimal lq =
                 (from 
                     k in KolcsonzesLista
@@ -97,20 +100,6 @@ namespace RentACucc.Model
                     k.Visszahozta == DateTime.MinValue
                  select new { z = (DateTime.Now - k.Mettol).Days * c.Napidij })
                  .Sum(x=>x.z);
-
-            /*
-             int tmp = 0;
-
-            foreach (Kolcsonzes k in KolcsonzesLista)
-            {
-                if (
-                    k.JuzerID == juzer.ID
-                    &&
-                    k.Visszahozta == DateTime.MinValue)
-                {
-                    tmp += (DateTime.Now - k.Mettol).Days * 1;
-                }
-            }*/
 
             return (int)lq;
         }

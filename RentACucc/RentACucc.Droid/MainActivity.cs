@@ -20,7 +20,7 @@ namespace RentACucc.Droid
             base.OnCreate(bundle);
 
             // Azt az útvonalat kérjük a rendszertől ahova tárolhatjuk az alkalmazáshoz szükséges fájlokat
-            RentACucc.DB.DBPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            RentACucc.Model.DB.DBPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());

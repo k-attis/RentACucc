@@ -10,6 +10,7 @@
           <StackLayout Orientation="Horizontal">
             <Label Text="{Binding ID}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
             <Label Text="{Binding Nev}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+            <Label Text="{Binding KolcsonzesekSzama}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
             <Label Text="{Binding Tartozas}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
           </StackLayout>
         </ViewCell>

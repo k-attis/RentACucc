@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentACucc
+namespace RentACucc.Model
 {
     public class DB
     {
@@ -143,21 +143,26 @@ namespace RentACucc
             dbkapcsi.Delete(item);
         }
 
-        /*public int getTartozas(Juzer juzer)
+        class CsakAzSqliteMiattKell
         {
-            List<int> tmp= dbkapcsi.Query<int>(@"
-                SELECT
-                    sum(100)
+            public int ertek { get; set; }
+        }
+
+        public int getKolcsonzesekSzama(Juzer juzer)
+        {
+            List<CsakAzSqliteMiattKell> tmp = dbkapcsi.Query<CsakAzSqliteMiattKell>(@"
+                SELECT                    
+                    count(*) as ertek
                 FROM
                     Kolcsonzes
                     INNER JOIN
                     Cucc
                     ON
-                    Kolcsonzes.CuccID = Cucc.ID
-                WHERE
-                    Kolcsonzes.JuzerID = 1", juzer.ID);
+                        Kolcsonzes.CuccID = Cucc.ID
+                        AND
+                        Kolcsonzes.JuzerID = ?", juzer.ID);
 
-            return tmp[0];
-        }*/
+            return tmp[0].ertek;
+        }
     }
 }

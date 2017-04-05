@@ -36,7 +36,7 @@ namespace RentACucc.View
         {   
             b.BorderWidth = 5;
             b.BorderColor = Color.White;
-            b.BorderRadius = 10;            
+            b.BorderRadius = 10; 
         }
 
         private void UjKolcsi_Clicked(object sender, EventArgs e)

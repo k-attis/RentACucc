@@ -11,6 +11,8 @@
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="*" />
@@ -23,5 +25,8 @@
     <Button x:Name="LejartKolcsik" Text="Lejárt kölcsönzések" Image="i4.png" ContentLayout="Top" BackgroundColor="#D46A6A" TextColor="#FFFFFF" Grid.Row="1" Grid.Column="1"/>
     <Button x:Name="ujKolcsi" Text="Új kölcsönzés" Image="i5.png" ContentLayout="Top"  BorderColor="Transparent" BackgroundColor="Transparent" TextColor="#FFFFFF" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
     <ProgressBar x:Name="pbar" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+    <Button x:Name="sendMail" Text="email küldés" Image="i5.png" ContentLayout="Top"  BorderColor="Transparent" BackgroundColor="Transparent" TextColor="#FFFFFF" Grid.Row="4" Grid.Column="0"/>
+    <Button x:Name="callB" Text="szám hívása" Image="i5.png" ContentLayout="Top"  BorderColor="Transparent" BackgroundColor="Transparent" TextColor="#FFFFFF" Grid.Row="4" Grid.Column="1"/>
+    <Button x:Name="mapB" Text="Tárképre" Image="i5.png" ContentLayout="Top"  BorderColor="Transparent" BackgroundColor="Transparent" TextColor="#FFFFFF" Grid.Row="5" Grid.Column="0"/>
   </Grid>
 </ContentPage>

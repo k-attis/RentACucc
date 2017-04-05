@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,8 +34,29 @@ namespace RentACucc.View
 
             pbar.ProgressTo(.8, 5000, Easing.Linear);
             //pbar.BackgroundColor = Color.Pink;
-            pbar.Opacity = 0.5;            
-            
+            pbar.Opacity = 0.5;
+
+           sendMail.Clicked += SendMail_Clicked;
+            callB.Clicked += CallB_Clicked;
+            mapB.Clicked += MapB_Clicked;
+        }
+
+        private void MapB_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri(string.Format("geo:0,0?q={0}", WebUtility.UrlEncode("1096 Budapest, Lenhossék u. 24."))));            
+        }
+
+        private void CallB_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("tel:1230"));
+        }
+
+        private void SendMail_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("mailto:feedback@test.com?subject=Feedback&body=A message for you consideration." +
+                            "%0D%0A" +  //line break
+                            "Line2"));
+
         }
 
         private void egysegesKinezet(Button b)

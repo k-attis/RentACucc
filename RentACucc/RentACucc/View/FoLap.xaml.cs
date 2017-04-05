@@ -29,7 +29,9 @@ namespace RentACucc.View
             egysegesKinezet(Juserek);
             egysegesKinezet(Kolcsik);
             egysegesKinezet(LejartKolcsik);
-            egysegesKinezet(ujKolcsi);                       
+            egysegesKinezet(ujKolcsi);
+
+            pbar.ProgressTo(.8, 2500, Easing.Linear);
         }
 
         private void egysegesKinezet(Button b)

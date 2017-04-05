@@ -31,7 +31,10 @@ namespace RentACucc.View
             egysegesKinezet(LejartKolcsik);
             egysegesKinezet(ujKolcsi);
 
-            pbar.ProgressTo(.8, 2500, Easing.Linear);
+            pbar.ProgressTo(.8, 5000, Easing.Linear);
+            //pbar.BackgroundColor = Color.Pink;
+            pbar.Opacity = 0.5;            
+            
         }
 
         private void egysegesKinezet(Button b)

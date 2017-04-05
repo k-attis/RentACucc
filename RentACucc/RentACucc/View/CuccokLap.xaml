@@ -4,7 +4,7 @@
              x:Class="RentACucc.View.CuccokLap">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="newCucc" Text="Új Cucc"/>
+    <ToolbarItem x:Name="newCucc" Text="Új Cucc" Icon="i1.png"/>
   </ContentPage.ToolbarItems>
 
   <ListView x:Name = "cuccokLista">

@@ -24,6 +24,7 @@ namespace RentACucc.View
 
         private void CuccokLista_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+           cuccokLista.SelectedItem = null;
            Navigation.PushAsync(new CuccLap((Cucc)e.Item));
         }
 

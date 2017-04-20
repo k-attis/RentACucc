@@ -17,7 +17,7 @@ namespace RentACucc.View
                 Model.ViewModel.getEgykePeldany().getJuzerViewModelList();
             juzerekLista.ItemTapped += JuzerekLista_ItemTapped;
 
-            
+            juzerekLista.SeparatorColor = Color.Red;
 
             newJuzer.Clicked += NewJuzer_Clicked;
         }

@@ -33,6 +33,8 @@ namespace RentACucc.View
             egysegesKinezet(LejartKolcsik);
             egysegesKinezet(ujKolcsi);
 
+            /*
+             * Egyelőre kiütöm a az emailküldést
             pbar.ProgressTo(.8, 5000, Easing.Linear);
             //pbar.BackgroundColor = Color.Pink;
             
@@ -40,7 +42,7 @@ namespace RentACucc.View
 
             sendMail.Clicked += SendMail_Clicked;
             callB.Clicked += CallB_Clicked;
-            mapB.Clicked += MapB_Clicked;
+            mapB.Clicked += MapB_Clicked;*/
         }
 
         private void MapB_Clicked(object sender, EventArgs e)

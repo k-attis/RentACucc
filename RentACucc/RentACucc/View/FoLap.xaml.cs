@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -34,16 +35,17 @@ namespace RentACucc.View
 
             pbar.ProgressTo(.8, 5000, Easing.Linear);
             //pbar.BackgroundColor = Color.Pink;
-            pbar.Opacity = 0.5;
+            
+            pbar.Opacity = 0.5;            
 
-           sendMail.Clicked += SendMail_Clicked;
+            sendMail.Clicked += SendMail_Clicked;
             callB.Clicked += CallB_Clicked;
             mapB.Clicked += MapB_Clicked;
         }
 
         private void MapB_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri(string.Format("geo:0,0?q={0}", WebUtility.UrlEncode("1096 Budapest, Lenhossék u. 24."))));            
+            Device.OpenUri(new Uri(string.Format("geo:0,0?q={0}", WebUtility.UrlEncode("1096 Budapest, Lenhossék u. 24."))));
         }
 
         private void CallB_Clicked(object sender, EventArgs e)
@@ -53,17 +55,34 @@ namespace RentACucc.View
 
         private void SendMail_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri("mailto:feedback@test.com?subject=Feedback&body=A message for you consideration." +
-                            "%0D%0A" +  //line break
-                            "Line2"));
+            String nagyapámemailje = "kristofmarko97@gmail.com";
+            String targysor = "Rendelendok";
+
+            List<String> rendelendok = new List<string>()
+            {
+                "paprika",
+                "kolbasz",
+                "kenyer"
+            };
+
+            String rendelendokszoveg = "";
+
+            foreach (String s in rendelendok)
+                rendelendokszoveg += s + "%0D%0A";
+
+            Device.OpenUri(
+                new Uri(
+                    "mailto:" + nagyapámemailje +
+                    "?subject=" + targysor +
+                    "&body=" + rendelendokszoveg));
 
         }
 
         private void egysegesKinezet(Button b)
-        {   
+        {
             b.BorderWidth = 5;
             b.BorderColor = Color.White;
-            b.BorderRadius = 10; 
+            b.BorderRadius = 10;
         }
 
         private void UjKolcsi_Clicked(object sender, EventArgs e)

@@ -2,17 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentACucc.View.JuzerekLap">
-  
+  <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="newJuzer" Text="Új Juzer" Icon="i1.png"/>
+  </ContentPage.ToolbarItems>
+
+  <Label x:Name="tst" Text="{Binding Juzer.ID}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+
   <ListView x:Name = "juzerekLista">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <StackLayout Orientation="Horizontal">
-            <Label Text="{Binding ID}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-            <Label Text="{Binding Nev}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-            <Label Text="{Binding KolcsonzesekSzama}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-            <Label Text="{Binding Tartozas}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-          </StackLayout>
+          <!--StackLayout Orientation="Horizontal"-->
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="1*" />
+              <ColumnDefinition Width="5*" />
+              <ColumnDefinition Width="1*" />
+              <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding Juzer.ID}" VerticalTextAlignment="Center" HorizontalOptions="Fill" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="{Binding Juzer.Nev}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="Fill" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="{Binding KolcsonzesekSzama}" VerticalTextAlignment="Center" HorizontalOptions="Fill" Grid.Row="0" Grid.Column="2"/>
+            <Label Text="{Binding Tartozas}" VerticalTextAlignment="Center" HorizontalOptions="Fill" Grid.Row="0" Grid.Column="3"/>
+          </Grid>
+          <!--/StackLayout-->
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>

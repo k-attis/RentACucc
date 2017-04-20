@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RentACucc.View.CuccLap">
+             x:Class="RentACucc.View.JuzerLap">
 
   <ContentPage.ToolbarItems>
     <ToolbarItem x:Name="deleteTBI" Text="Törlés"/>
     <ToolbarItem x:Name="saveTBI" Text="Mentés"/>
     <ToolbarItem x:Name="cancelTBI" Text="Mégsem"/>
   </ContentPage.ToolbarItems>
-
+  
   <StackLayout Orientation="Vertical">
-    <Label Text="Sorozatszám"/>
-    <Entry x:Name="snEntry" VerticalOptions="Center"/>
-    <Label Text="Név"/>
-    <Entry x:Name="nevEntry" VerticalOptions="Center"/>
+    <Label Text="Nev" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Entry x:Name="nevEntry"/>
   </StackLayout>
-
 </ContentPage>

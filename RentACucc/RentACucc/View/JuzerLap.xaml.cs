@@ -8,25 +8,21 @@ using Xamarin.Forms;
 
 namespace RentACucc.View
 {
-    public partial class CuccLap : ContentPage
+    public partial class JuzerLap : ContentPage
     {
-        Cucc _cucc;
+        Juzer _juzer;
 
-        public CuccLap(Cucc cucc)
+        public JuzerLap(Juzer juzer)
         {
             InitializeComponent();
 
-            _cucc = cucc;
+            _juzer = juzer;
 
-            snEntry.Text = _cucc.SN;
-            nevEntry.Text = _cucc.Nev;
+            nevEntry.Text = _juzer.Nev;
 
             deleteTBI.Clicked += DeleteTBI_Clicked;
             saveTBI.Clicked += SaveTBI_Clicked;
             cancelTBI.Clicked += CancelTBI_Clicked;
-
-            if (cucc.ID == 0) // új cucc lesz, ezért nem kell e Törlés gomb
-                this.ToolbarItems.Remove(deleteTBI);
         }
 
         private void CancelTBI_Clicked(object sender, EventArgs e)
@@ -36,19 +32,18 @@ namespace RentACucc.View
 
         private void SaveTBI_Clicked(object sender, EventArgs e)
         {
-            _cucc.SN = snEntry.Text;
-            _cucc.Nev = nevEntry.Text;
+            _juzer.Nev = nevEntry.Text;
 
-            Model.ViewModel.getEgykePeldany().saveCucc(_cucc);
+            Model.ViewModel.getEgykePeldany().saveJuzer(_juzer);
             Navigation.PopAsync();
         }
 
         private void DeleteTBI_Clicked(object sender, EventArgs e)
         {
-            if (Model.ViewModel.getEgykePeldany().kiVanEKolcsonozve(_cucc))
-                DisplayAlert("Figyi", "Ez már kivan kölcsönözve", "Okés");
+            if (Model.ViewModel.getEgykePeldany().vanEKolcsonzese(_juzer))
+                DisplayAlert("Figyi", "Amig van kölcsönzése, addig nem törölhető", "Okés");
             else
-                Model.ViewModel.getEgykePeldany().deleteCucc(_cucc);
+                Model.ViewModel.getEgykePeldany().deleteJuzer(_juzer);
             Navigation.PopAsync();
         }
     }

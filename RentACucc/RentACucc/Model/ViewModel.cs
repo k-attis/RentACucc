@@ -37,7 +37,10 @@ namespace RentACucc.Model
         public void saveCucc(Cucc cucc)
         {
             if (cucc.ID == 0)
-                db.saveItem(cucc);
+            {
+                db.insertItem(cucc);
+                CuccLista.Add(cucc);
+            }
             else
                 db.updateItem(cucc);
         }
@@ -45,6 +48,37 @@ namespace RentACucc.Model
         public void deleteCucc(Cucc cucc)
         {
             db.deleteItem(cucc);
+            CuccLista.Remove(cucc);
+        }
+
+        public void saveJuzer(Juzer Juzer)
+        {
+            if (Juzer.ID == 0)
+            {
+                db.insertItem(Juzer);
+                JuzerLista.Add(Juzer);
+            }
+            else
+                db.updateItem(Juzer);
+        }
+
+        public void deleteJuzer(Juzer Juzer)
+        {
+            db.deleteItem(Juzer);
+            JuzerLista.Remove(Juzer);
+        }
+
+        public bool vanEKolcsonzese(Juzer Juzer)
+        {
+            if (Juzer.ID == 0)
+                return false;
+
+            foreach (Kolcsonzes k in KolcsonzesLista)
+                if (k.JuzerID == Juzer.ID && 
+                    k.Visszahozta == DateTime.MinValue)
+                    return true;
+
+            return false;
         }
 
         public bool kiVanEKolcsonozve(Cucc cucc)
@@ -70,36 +104,33 @@ namespace RentACucc.Model
 
             foreach (Juzer j in JuzerLista)
             {
-                JuzerViewModel jvm = new JuzerViewModel()
-                {
-                    ID = j.ID,
-                    Nev = j.Nev,
-                    KolcsonzesekSzama = db.getKolcsonzesekSzama(j),
-                    Tartozas = getTartozas(j)
-                };
-                
-                tmp.Add(jvm);
+                tmp.Add(new JuzerViewModel(
+                    j,
+                    db.getKolcsonzesekSzama(j),
+                    getTartozas(j)
+                    )
+                );
             }
 
             return tmp;
         }
 
-        
+
         public int getTartozas(Juzer juzer)
         {
             decimal lq =
-                (from 
+                (from
                     k in KolcsonzesLista
-                    join
-                    c in CuccLista
-                 on 
-                    k.CuccID equals c.ID
+                 join
+                 c in CuccLista
+              on
+                 k.CuccID equals c.ID
                  where
-                    k.JuzerID == juzer.ID 
+                    k.JuzerID == juzer.ID
                     &&
                     k.Visszahozta == DateTime.MinValue
                  select new { z = (DateTime.Now - k.Mettol).Days * c.Napidij })
-                 .Sum(x=>x.z);
+                 .Sum(x => x.z);
 
             return (int)lq;
         }

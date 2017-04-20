@@ -25,9 +25,10 @@ namespace RentACucc.Model
             {
             }
 
-            dbkapcsi.DropTable<Cucc>();
+            /*dbkapcsi.DropTable<Cucc>();
             dbkapcsi.DropTable<Juzer>();
             dbkapcsi.DropTable<Kolcsonzes>();
+            */
 
             dbkapcsi.CreateTable<Cucc>();
             dbkapcsi.CreateTable<Juzer>();
@@ -117,20 +118,9 @@ namespace RentACucc.Model
             return dbkapcsi.Table<T>().ToList();
         }
 
-        public void saveItem<T>(T item) where T : new()
+        public void insertItem<T>(T item) where T : new()
         {
-            int tmp;
-            try
-            {
-                tmp = dbkapcsi.Insert(item);
-            }
-            catch
-            {
-                tmp = -1;
-            }
-
-            if (tmp == -1)
-                updateItem(item);
+            dbkapcsi.Insert(item);
         }
 
         public void updateItem<T>(T item) where T : new()
@@ -150,17 +140,18 @@ namespace RentACucc.Model
 
         public int getKolcsonzesekSzama(Juzer juzer)
         {
-            List<CsakAzSqliteMiattKell> tmp = dbkapcsi.Query<CsakAzSqliteMiattKell>(@"
+            List<CsakAzSqliteMiattKell> tmp = 
+                dbkapcsi.Query<CsakAzSqliteMiattKell>(@"
                 SELECT                    
                     count(*) as ertek
                 FROM
                     Kolcsonzes
-                    INNER JOIN
-                    Cucc
-                    ON
-                        Kolcsonzes.CuccID = Cucc.ID
-                        AND
-                        Kolcsonzes.JuzerID = ?", juzer.ID);
+                WHERE    
+                    Kolcsonzes.JuzerID = ?
+                    AND
+                    Kolcsonzes.Visszahozta = ?", 
+                    juzer.ID, 
+                    DateTime.MinValue);
 
             return tmp[0].ertek;
         }

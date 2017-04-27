@@ -12,7 +12,9 @@ namespace RentACucc.View
     {
         Model.KolcsonzesViewModel kvm = new Model.KolcsonzesViewModel();
 
-        public KolcsonzesLap()
+        int juzerID;
+
+        public KolcsonzesLap(int JuzerID)
         {
             InitializeComponent();
             BindingContext = kvm;

@@ -10,10 +10,16 @@ namespace RentACucc.View
 {
     public partial class JuzerekLap : ContentPage
     {
-        public JuzerekLap()
+        bool ValasztoMod;
+        public int ValasztottJuzerID { get; private set; } = -1;
+
+        public JuzerekLap(bool ValasztoMod)
         {
             InitializeComponent();
-            juzerekLista.ItemsSource = 
+
+            this.ValasztoMod = ValasztoMod;
+
+            juzerekLista.ItemsSource =
                 Model.ViewModel.getEgykePeldany().getJuzerViewModelList();
             juzerekLista.ItemTapped += JuzerekLista_ItemTapped;
 
@@ -30,7 +36,13 @@ namespace RentACucc.View
         private void JuzerekLista_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             juzerekLista.SelectedItem = null;
-            Navigation.PushAsync(new JuzerLap(((Model.JuzerViewModel)e.Item).Juzer));
+            if (ValasztoMod)
+            {
+                this.ValasztottJuzerID = ((Model.JuzerViewModel)e.Item).Juzer.ID;
+                Navigation.PopAsync();
+            }
+            else
+                Navigation.PushAsync(new JuzerLap(((Model.JuzerViewModel)e.Item).Juzer));
         }
     }
 }

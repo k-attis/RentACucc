@@ -102,12 +102,15 @@ namespace RentACucc.Model
             ObservableCollection<JuzerViewModel> tmp =
                 new ObservableCollection<JuzerViewModel>();
 
+            List<int> tl = db.getJuzerekLejartKolcsonzessel();
+
             foreach (Juzer j in JuzerLista)
             {
                 tmp.Add(new JuzerViewModel(
                     j,
                     db.getKolcsonzesekSzama(j),
-                    getTartozas(j)
+                    getTartozas(j),
+                    tl.IndexOf(j.ID)>=0
                     )
                 );
             }

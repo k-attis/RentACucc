@@ -25,10 +25,10 @@ namespace RentACucc.Model
             {
             }
 
-            /*dbkapcsi.DropTable<Cucc>();
+            dbkapcsi.DropTable<Cucc>();
             dbkapcsi.DropTable<Juzer>();
             dbkapcsi.DropTable<Kolcsonzes>();
-            */
+            
 
             dbkapcsi.CreateTable<Cucc>();
             dbkapcsi.CreateTable<Juzer>();
@@ -91,7 +91,7 @@ namespace RentACucc.Model
                     CuccID = 2,
                     JuzerID =2,
                     Mettol = DateTime.Parse("2017.03.23"),
-                    Meddig = DateTime.Parse("2017.04.06")
+                    Meddig = DateTime.Parse("2017.04.28")
                 },
                 new Kolcsonzes
                 {
@@ -154,6 +154,27 @@ namespace RentACucc.Model
                     DateTime.MinValue);
 
             return tmp[0].ertek;
+        }
+
+        public List<int> getJuzerekLejartKolcsonzessel()
+        {
+            List<CsakAzSqliteMiattKell> tmp =
+               dbkapcsi.Query<CsakAzSqliteMiattKell>(@"
+                SELECT
+                    DISTINCT JuzerID AS ertek
+                FROM
+                    Kolcsonzes
+                WHERE
+                    Visszahozta < Mettol
+                    AND
+                    Meddig < ?", DateTime.Now);
+
+            List<int> outl = new List<int>();
+
+            foreach (CsakAzSqliteMiattKell c in tmp)
+                outl.Add(c.ertek);
+
+            return outl;
         }
     }
 }

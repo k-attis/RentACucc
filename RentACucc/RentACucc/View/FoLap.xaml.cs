@@ -99,6 +99,7 @@ namespace RentACucc.View
 
         private void Kolcsik_Clicked(object sender, EventArgs e)
         {
+
             throw new NotImplementedException();
         }
 

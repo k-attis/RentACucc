@@ -18,7 +18,15 @@ namespace RentACucc.View
             InitializeComponent();
             jvml = Model.ViewModel.getEgykePeldany().getJuzerViewModelList();
             juzerekLista.ItemsSource = jvml;
+            juzerekLista.ItemTapped += JuzerekLista_ItemTapped;
             newkolcsonzes.Clicked += Newkolcsonzes_Clicked;
+        }
+
+        private void JuzerekLista_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.
+                PushAsync(
+                new KolcsonzesLap(((Model.JuzerViewModel)(e.Item)).Juzer.ID));
         }
 
         JuzerekLap jl = new JuzerekLap(true);

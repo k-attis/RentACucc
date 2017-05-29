@@ -68,13 +68,47 @@ namespace RentACucc.Model
             JuzerLista.Remove(Juzer);
         }
 
+        public void saveKolcsonzes(KolcsonzesViewModel kvm)
+        {
+            foreach (Cucc c in kvm.Cuccok)
+            {
+                Kolcsonzes k = new Kolcsonzes();
+                k.JuzerID = kvm.juzer.ID;
+                k.CuccID = c.ID;
+                k.Mettol = DateTime.Now;
+                k.Meddig = DateTime.Now.AddDays(14);
+
+                db.insertItem(k);
+            }
+        }
+
+        public List<Cucc> getJuzerKolcsonzesek(Juzer juzer)
+        {
+            List<Cucc> ret = new List<Cucc>();
+
+            foreach (Kolcsonzes k in KolcsonzesLista)
+                if (k.JuzerID == juzer.ID
+                    &&
+                    k.Visszahozta == DateTime.MinValue)
+                {
+                    foreach (Cucc c in CuccLista)
+                        if (c.ID == k.CuccID)
+                        {
+                            ret.Add(c);
+                            break;
+                        }
+                }
+
+            return ret;
+        }
+
         public bool vanEKolcsonzese(Juzer Juzer)
         {
             if (Juzer.ID == 0)
                 return false;
 
             foreach (Kolcsonzes k in KolcsonzesLista)
-                if (k.JuzerID == Juzer.ID && 
+                if (k.JuzerID == Juzer.ID &&
                     k.Visszahozta == DateTime.MinValue)
                     return true;
 
@@ -110,7 +144,7 @@ namespace RentACucc.Model
                     j,
                     db.getKolcsonzesekSzama(j),
                     getTartozas(j),
-                    tl.IndexOf(j.ID)>=0
+                    tl.IndexOf(j.ID) >= 0
                     )
                 );
             }

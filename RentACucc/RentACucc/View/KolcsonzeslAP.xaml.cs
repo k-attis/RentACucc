@@ -31,20 +31,24 @@ namespace RentACucc.View
         {
             cl = new CuccokLap(true);
             cl.Disappearing += Cl_Disappearing;
+            Navigation.PushAsync(cl);
         }
 
         private void Cl_Disappearing(object sender, EventArgs e)
         {
-            kvm.addCucc(cl.valasztottCuccId);                
+            kvm.addCucc(cl.valasztottCuccId);
+
         }
 
         private void saveTBI_Clicked(object sender, EventArgs e)
         {
+            Model.ViewModel.getEgykePeldany().saveKolcsonzes(kvm);
+            Navigation.PopAsync();
         }
-
 
         private void cancelTBI_Clicked(object sender, EventArgs e)
         {
+            Navigation.PopAsync();
         }
     }
 }

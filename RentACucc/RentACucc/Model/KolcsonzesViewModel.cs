@@ -17,7 +17,17 @@ namespace RentACucc.Model
         {
             foreach (Juzer j in ViewModel.getEgykePeldany().JuzerLista)
                 if (j.ID == valsztottUserId)
+                {
                     juzer = j;
+                    List<Cucc> lc = 
+                        ViewModel.
+                        getEgykePeldany().getJuzerKolcsonzesek(j);
+
+                    foreach (Cucc c in lc)
+                        Cuccok.Add(c);
+
+                    break;
+                }
         }
 
         public void addCucc(int valasztottCuccId)

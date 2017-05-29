@@ -120,7 +120,7 @@ namespace RentACucc.View
 
         private void Cuccok_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CuccokLap());
+            Navigation.PushAsync(new CuccokLap(false));
         }
     }
 }

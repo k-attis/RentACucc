@@ -10,11 +10,17 @@ namespace RentACucc.View
 {
     public partial class CuccokLap : ContentPage
     {
-        public CuccokLap()
+        bool valasztoMod;
+
+        public int valasztottCuccId { get; private set; }
+
+        public CuccokLap(bool valasztoMod)
         {
             InitializeComponent();
 
-            cuccokLista.ItemsSource = 
+            this.valasztoMod = valasztoMod;
+
+            cuccokLista.ItemsSource =
                 Model.ViewModel.getEgykePeldany().CuccLista;
 
             cuccokLista.ItemTapped += CuccokLista_ItemTapped;
@@ -24,8 +30,15 @@ namespace RentACucc.View
 
         private void CuccokLista_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-           cuccokLista.SelectedItem = null;
-           Navigation.PushAsync(new CuccLap((Cucc)e.Item));
+            cuccokLista.SelectedItem = null;
+
+            if (valasztoMod)
+            {
+                valasztottCuccId = ((Cucc)e.Item).ID;
+                Navigation.PopAsync();
+            }
+            else
+                Navigation.PushAsync(new CuccLap((Cucc)e.Item));
         }
 
         private void NewCucc_Clicked(object sender, EventArgs e)

@@ -10,14 +10,21 @@ namespace RentACucc.Model
     class KolcsonzesViewModel
     {
         public Juzer juzer { get; set; }
-        public ObservableCollection<Cucc> Cuccok { get; set; } = 
+        public ObservableCollection<Cucc> Cuccok { get; set; } =
             new ObservableCollection<Cucc>();
 
-        public KolcsonzesViewModel()
+        public KolcsonzesViewModel(int valsztottUserId)
         {
-            juzer = ViewModel.getEgykePeldany().JuzerLista[0];
-            Cuccok.Add(ViewModel.getEgykePeldany().CuccLista[1]);
-            Cuccok.Add(ViewModel.getEgykePeldany().CuccLista[2]);
+            foreach (Juzer j in ViewModel.getEgykePeldany().JuzerLista)
+                if (j.ID == valsztottUserId)
+                    juzer = j;
+        }
+
+        public void addCucc(int valasztottCuccId)
+        {
+            foreach (Cucc c in ViewModel.getEgykePeldany().CuccLista)
+                if (c.ID == valasztottCuccId)
+                    Cuccok.Add(c);
         }
     }
 }

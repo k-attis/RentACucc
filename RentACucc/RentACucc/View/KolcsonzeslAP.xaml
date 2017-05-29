@@ -4,10 +4,11 @@
              x:Class="RentACucc.View.KolcsonzesLap">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="userselectButtonTBI" Text="Kölcsönző kiválasztás"/>
-    <ToolbarItem x:Name="addCuccTBI" Text="Cucc hozzáadás"/>
+    <ToolbarItem x:Name="addCuccTBI" Text="+Cucc"/>
+    <ToolbarItem x:Name="saveTBI" Text="Mentés"/>
     <ToolbarItem x:Name="cancelTBI" Text="Mégsem"/>
   </ContentPage.ToolbarItems>
+  
   <StackLayout Orientation="Vertical">
 
     <StackLayout Orientation="Vertical">

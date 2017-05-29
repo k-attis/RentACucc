@@ -87,9 +87,20 @@ namespace RentACucc.View
             b.BorderRadius = 10;
         }
 
+        JuzerekLap jl;
+
         private void UjKolcsi_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new KolcsonzesLap());
+            jl = new JuzerekLap(true);
+
+            jl.Disappearing += Jl_Disappearing;
+
+            Navigation.PushAsync(jl);
+        }
+
+        private void Jl_Disappearing(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new KolcsonzesLap(jl.ValasztottJuzerID));
         }
 
         private void LejartKolcsik_Clicked(object sender, EventArgs e)
@@ -99,7 +110,6 @@ namespace RentACucc.View
 
         private void Kolcsik_Clicked(object sender, EventArgs e)
         {
-
             Navigation.PushAsync(new KolcsonzesekLap());
         }
 

@@ -19,8 +19,7 @@ namespace RentACucc.View
 
             this.ValasztoMod = ValasztoMod;
 
-            juzerekLista.ItemsSource =
-                Model.ViewModel.getEgykePeldany().getJuzerViewModelList();
+            juzerekLista.ItemsSource = Model.ViewModel.getEgykePeldany().getJuzerViewModelList();
             juzerekLista.ItemTapped += JuzerekLista_ItemTapped;
 
             juzerekLista.SeparatorColor = Color.Red;
@@ -36,6 +35,7 @@ namespace RentACucc.View
         private void JuzerekLista_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             juzerekLista.SelectedItem = null;
+
             if (ValasztoMod)
             {
                 this.ValasztottJuzerID = ((Model.JuzerViewModel)e.Item).Juzer.ID;

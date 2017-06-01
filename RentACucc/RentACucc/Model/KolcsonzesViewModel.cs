@@ -36,5 +36,16 @@ namespace RentACucc.Model
                 if (c.ID == valasztottCuccId)
                     Cuccok.Add(c);
         }
+
+        public void deleteCucc(Cucc cucc)
+        {
+            Cuccok.Remove(cucc);
+        }
+
+        public void visszahoztaCucc(Cucc cucc)
+        {
+            Cuccok.Remove(cucc);
+            ViewModel.getEgykePeldany().visszahoztaCucc(juzer, cucc);
+        }
     }
 }

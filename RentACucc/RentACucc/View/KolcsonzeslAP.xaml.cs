@@ -12,9 +12,13 @@ namespace RentACucc.View
     {
         Model.KolcsonzesViewModel kvm;
 
-        public KolcsonzesLap(int valasztottJuzerID)
+        bool ujKolcsonzes;
+
+        public KolcsonzesLap(int valasztottJuzerID, bool ujKolcsonzes)
         {
             kvm = new Model.KolcsonzesViewModel(valasztottJuzerID);
+
+            this.ujKolcsonzes = ujKolcsonzes;
 
             InitializeComponent();
             BindingContext = kvm;
@@ -23,6 +27,20 @@ namespace RentACucc.View
             addCuccTBI.Clicked += addCuccTBI_Clicked;
             saveTBI.Clicked += saveTBI_Clicked;
             cancelTBI.Clicked += cancelTBI_Clicked;
+            deleteCuccTBI.Clicked += DeleteCuccTBI_Clicked;
+        }
+
+        private void DeleteCuccTBI_Clicked(object sender, EventArgs e)
+        {
+            Cucc c = (Cucc)cuccokLista.SelectedItem;
+
+            if (c == null)
+                return;
+
+            if (ujKolcsonzes)
+                kvm.deleteCucc(c);
+            else
+                kvm.visszahoztaCucc(c);                       
         }
 
         CuccokLap cl;

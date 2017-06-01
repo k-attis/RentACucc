@@ -4,6 +4,7 @@
              x:Class="RentACucc.View.KolcsonzesLap">
 
   <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="deleteCuccTBI" Text="-Cucc"/>
     <ToolbarItem x:Name="addCuccTBI" Text="+Cucc"/>
     <ToolbarItem x:Name="saveTBI" Text="Mentés"/>
     <ToolbarItem x:Name="cancelTBI" Text="Mégsem"/>

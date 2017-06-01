@@ -13,7 +13,7 @@ namespace RentACucc.Model
             new ObservableCollection<Cucc>();
         public ObservableCollection<Juzer> JuzerLista { get; } =
             new ObservableCollection<Juzer>();
-        public ObservableCollection<Kolcsonzes> KolcsonzesLista { get; } =
+        public ObservableCollection<Kolcsonzes> KolcsonzesLista { get; private set; } =
             new ObservableCollection<Kolcsonzes>();
 
         DB db = new DB();
@@ -80,6 +80,12 @@ namespace RentACucc.Model
 
                 db.insertItem(k);
             }
+        }
+
+        public void visszahoztaCucc(Juzer juzer, Cucc cucc)
+        {
+            db.visszahoztaCucc(juzer, cucc);
+            KolcsonzesLista = new ObservableCollection<Kolcsonzes>(db.getList<Kolcsonzes>());
         }
 
         public List<Cucc> getJuzerKolcsonzesek(Juzer juzer)

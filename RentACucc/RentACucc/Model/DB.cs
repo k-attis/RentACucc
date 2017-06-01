@@ -25,9 +25,9 @@ namespace RentACucc.Model
             {
             }
 
-            dbkapcsi.DropTable<Cucc>();
+            /*dbkapcsi.DropTable<Cucc>();
             dbkapcsi.DropTable<Juzer>();
-            dbkapcsi.DropTable<Kolcsonzes>();
+            dbkapcsi.DropTable<Kolcsonzes>();*/
             
 
             dbkapcsi.CreateTable<Cucc>();
@@ -175,6 +175,26 @@ namespace RentACucc.Model
                 outl.Add(c.ertek);
 
             return outl;
+        }
+
+        public void visszahoztaCucc(Juzer juzer, Cucc cucc)
+        {
+            dbkapcsi.Execute(
+                @"UPDATE Kolcsonzes
+                  SET
+                    Visszahozta = ?
+                  WHERE
+                    JuzerID = ?
+                    AND
+                    CuccID = ?
+                    AND
+                    Visszahozta = ?
+                ",
+                DateTime.Now,
+                juzer.ID,
+                cucc.ID,
+                DateTime.MinValue
+                );
         }
     }
 }

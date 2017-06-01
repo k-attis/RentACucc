@@ -100,7 +100,7 @@ namespace RentACucc.View
 
         private void Jl_Disappearing(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new KolcsonzesLap(jl.ValasztottJuzerID));
+            Navigation.PushAsync(new KolcsonzesLap(jl.ValasztottJuzerID, true));
         }
 
         private void LejartKolcsik_Clicked(object sender, EventArgs e)

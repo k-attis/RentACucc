@@ -60,6 +60,9 @@
     <Compile Include="View\JuzerekLap.xaml.cs">
       <DependentUpon>JuzerekLap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\KikolcsonzottCuccokLap.xaml.cs">
+      <DependentUpon>KikolcsonzottCuccokLap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\KolcsonzesekLap.xaml.cs">
       <DependentUpon>KolcsonzesekLap.xaml</DependentUpon>
     </Compile>
@@ -115,7 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\FoLap.xaml">
-	  <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -128,7 +131,7 @@
   <ItemGroup>
     <EmbeddedResource Include="View\CuccLap.xaml">
       <SubType>Designer</SubType>
-	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -140,19 +143,25 @@
   <ItemGroup>
     <EmbeddedResource Include="View\KolcsonzesLap.xaml">
       <SubType>Designer</SubType>
-	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\JuzerLap.xaml">
-	  <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\KolcsonzesekLap.xaml">
-	  <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\KikolcsonzottCuccokLap.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

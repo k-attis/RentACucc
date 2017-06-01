@@ -91,11 +91,14 @@ namespace RentACucc.View
 
         private void UjKolcsi_Clicked(object sender, EventArgs e)
         {
-            jl = new JuzerekLap(true);
+            Navigation.PushAsync(new KikolcsonzottCuccokLap());
+
+
+            /*jl = new JuzerekLap(true);
 
             jl.Disappearing += Jl_Disappearing;
 
-            Navigation.PushAsync(jl);
+            Navigation.PushAsync(jl);*/
         }
 
         private void Jl_Disappearing(object sender, EventArgs e)

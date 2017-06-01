@@ -108,6 +108,24 @@ namespace RentACucc.Model
             return ret;
         }
 
+        public List<Cucc> getKolcsonzottek()
+        {
+            List<Cucc> ret = new List<Cucc>();
+
+            foreach (Kolcsonzes k in KolcsonzesLista)
+                if (k.Visszahozta == DateTime.MinValue && k.Meddig <DateTime.Now)
+                {
+                    foreach (Cucc c in CuccLista)
+                        if (c.ID == k.CuccID)
+                        {
+                            ret.Add(c);
+                            break;
+                        }
+                }
+
+            return ret;
+        }
+
         public bool vanEKolcsonzese(Juzer Juzer)
         {
             if (Juzer.ID == 0)

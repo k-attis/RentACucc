@@ -21,6 +21,8 @@ namespace RentACucc.View
 
             this.BackgroundImage = "bg.jpg";
 
+            datumDP.DateSelected += DatumDP_DateSelected;
+
             Cuccok.Clicked += Cuccok_Clicked;
             Juserek.Clicked += Juserek_Clicked;
             Kolcsik.Clicked += Kolcsik_Clicked;
@@ -43,6 +45,11 @@ namespace RentACucc.View
             sendMail.Clicked += SendMail_Clicked;
             callB.Clicked += CallB_Clicked;
             mapB.Clicked += MapB_Clicked;*/
+        }
+
+        private void DatumDP_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            DisplayAlert("választott dátum", datumDP.Date.ToString(), "Ok");
         }
 
         private void MapB_Clicked(object sender, EventArgs e)

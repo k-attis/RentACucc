@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentACucc.View.FoLap"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Padding="20,20,20,20">
-   
-  
+
+
   <Grid x:Name="gl" ColumnSpacing="20" RowSpacing="20">
     <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
@@ -22,6 +24,26 @@
     <Button x:Name="Kolcsik" Text="Kölcsönzések" Image="i3.png" ContentLayout="Left,0" BackgroundColor="#D49A6A" TextColor="#FFFFFF" Grid.Row="2" Grid.Column="0"/>
     <Button x:Name="LejartKolcsik" Text="Lejárt kölcsönzések" Image="i4.png" ContentLayout="Left,0" BackgroundColor="#D46A6A" TextColor="#FFFFFF" Grid.Row="3" Grid.Column="0"/>
     <Button x:Name="ujKolcsi" Text="Új kölcsönzés" Image="i5.png" ContentLayout="Left,0"  BorderColor="Transparent" BackgroundColor="Transparent" TextColor="#FFFFFF" Grid.Row="4" Grid.Column="0"/>
+
+    <DatePicker x:Name="datumDP" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}" Grid.Row="5" Grid.Column="0">
+      <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+      <DatePicker.MinimumDate>
+        <sys:DateTime x:FactoryMethod="Parse">
+          <x:Arguments>
+            <x:String>Jan 1 2000</x:String>
+          </x:Arguments>
+        </sys:DateTime>
+      </DatePicker.MinimumDate>
+      <DatePicker.MaximumDate>
+        <sys:DateTime x:FactoryMethod="Parse">
+          <x:Arguments>
+            <x:String>Dec 31 2050</x:String>
+          </x:Arguments>
+        </sys:DateTime>
+      </DatePicker.MaximumDate>
+    </DatePicker>
+
+
     <!--
     <ProgressBar x:Name="pbar" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
     <Button x:Name="sendMail" Text="email küldés" Image="i5.png" ContentLayout="Top"  BorderColor="Transparent" BackgroundColor="Transparent" TextColor="#FFFFFF" Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="2"/>

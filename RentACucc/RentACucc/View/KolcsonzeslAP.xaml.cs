@@ -18,6 +18,8 @@ namespace RentACucc.View
         {
             kvm = new Model.KolcsonzesViewModel(valasztottJuzerID);
 
+            
+
             this.ujKolcsonzes = ujKolcsonzes;
 
             InitializeComponent();
